@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+//botão voltar
+$('#botao-voltar').mouseover(function(){
+	$("#botao-voltar").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#botao-voltar").attr("style", "fill:#FFDA44");
+});	
+
 //bongo da esquerda
 $(document).keydown(function(e){
 	if(e.wich == 65 || e.keyCode == 65){

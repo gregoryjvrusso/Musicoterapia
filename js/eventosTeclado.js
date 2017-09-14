@@ -1,10 +1,69 @@
-$(function(){
+$(document).ready(function(){
 	var audioFundo1 = new Audio();
 	audioFundo1.src = "MP3/piano/base/Base1-Jazz.mp3"
-	audioFundo1.play();
+//EVENTOS BOTÃO
+//Botão Voltar
+$('#botao-voltar').mouseover(function(){
+	$("#botao-voltar").attr("style", "fill:#e89d2e;");
 })
+.mouseleave(function() {
+	$("#botao-voltar").attr("style", "fill:#FFDA44");
+});	
 
-$(document).ready(function(){
+//Botão Play Music
+$('#botao-play').mouseover(function(){
+	$("#botao-play").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#botao-play").attr("style", "fill:#FFDA44");
+})
+.click(function() {
+
+	audioFundo1.play();
+});	
+
+//Botão Pause Music
+$('#botao-pause').mouseover(function(){
+	$("#botao-pause").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#botao-pause").attr("style", "fill:#FFDA44");
+})
+.click(function() {
+	audioFundo1.pause();
+});	
+
+//Botão Aumentar Volume
+$('#aumentar-volume').mouseover(function(){
+	$("#aumentar-volume").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#aumentar-volume").attr("style", "fill:#FFDA44");
+})
+.click(function() {
+    if( audioFundo1.volume < 1) {
+    	audioFundo1.volume += 0.1;
+    }
+});	
+
+//Botão Diminuir Volume
+$('#diminuir-volume').mouseover(function(){
+	$("#diminuir-volume").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#diminuir-volume").attr("style", "fill:#FFDA44");
+})
+.click(function() {
+    if( audioFundo1.volume > 0)  audioFundo1.volume -= 0.1;
+});	
+
+//Botão Proxima Música
+$('#proxima-musica').mouseover(function(){
+	$("#proxima-musica").attr("style", "fill:#e89d2e;");
+})
+.mouseleave(function() {
+	$("#proxima-musica").attr("style", "fill:#FFDA44");
+});	
 //EVENTO PARA QUANDO CLICAR
 $(document).keydown(function(e){
 
@@ -219,7 +278,7 @@ if(e.wich == 87 || e.keyCode == 87){
 if(e.wich == 69 || e.keyCode == 69){
 	$("#teclaBranca3").attr("fill", "#FFFFFF");
 }
- 
+
 // Tecla Branca 4 - F -> Letra R
 if(e.wich == 82 || e.keyCode == 82){
 	$("#teclaBranca4").attr("fill", "#FFFFFF");
@@ -319,7 +378,7 @@ if(e.wich == 71 || e.keyCode == 71){
 if(e.wich == 72 || e.keyCode == 72){
 	$("#teclaPreta9").attr("fill", "#000000"); 
 }
- 
+
 // Tecla Preta 10 - A# OITAVADA -> Letra J
 if(e.wich == 74 || e.keyCode == 74){
 	$("#teclaPreta10").attr("fill", "#000000"); 
@@ -568,3 +627,4 @@ $('#teclaPreta10').click(function(){
 		$("#teclaPreta10").attr("fill", "#000000");
 	}, 100);  })
 })
+
