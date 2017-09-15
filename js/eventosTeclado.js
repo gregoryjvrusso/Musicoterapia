@@ -1,6 +1,14 @@
 $(document).ready(function(){
+	var i = 0;
+	var musicas =   [
+        { mp3:'MP3/piano/base/jazz.mp3' , ogg:'jazz.ogg' , titulo:'Jazz'},
+        { mp3:'MP3/piano/base/bossanova.mp3', ogg:'bossanova.ogg' , titulo:'Bossa Nova'},
+        { mp3:'MP3/piano/base/choro.mp3' ,ogg:'choro.ogg' , titulo:'Choro'},
+    ]; 
+
 	var audioFundo1 = new Audio();
-	audioFundo1.src = "MP3/piano/base/Base1-Jazz.mp3"
+	audioFundo1.src = musicas[i].mp3;
+	audioFundo1.volume = 0.5;
 //EVENTOS BOTÃO
 //Botão Voltar
 $('#botao-voltar').mouseover(function(){
@@ -18,7 +26,6 @@ $('#botao-play').mouseover(function(){
 	$("#botao-play").attr("style", "fill:#FFDA44");
 })
 .click(function() {
-
 	audioFundo1.play();
 });	
 
@@ -63,7 +70,17 @@ $('#proxima-musica').mouseover(function(){
 })
 .mouseleave(function() {
 	$("#proxima-musica").attr("style", "fill:#FFDA44");
+})
+.click(function() {
+	i++;
+	if(i >= musicas.length){
+		i = 0;
+	} 
+	audioFundo1.src = musicas[i].mp3;
+	audioFundo1.play();
+	
 });	
+
 //EVENTO PARA QUANDO CLICAR
 $(document).keydown(function(e){
 
@@ -71,7 +88,7 @@ $(document).keydown(function(e){
 if(e.wich == 81 || e.keyCode == 81){
 	$("#teclaBranca1").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/c1.mp3";
+	audio1.src = "MP3/piano/notas/c1.mp3";
 	audio1.play();
 }
 
@@ -79,7 +96,7 @@ if(e.wich == 81 || e.keyCode == 81){
 if(e.wich == 87 || e.keyCode == 87){
 	$("#teclaBranca2").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/d1.mp3";
+	audio1.src = "MP3/piano/notas/d1.mp3";
 	audio1.play();
 }
 
@@ -87,7 +104,7 @@ if(e.wich == 87 || e.keyCode == 87){
 if(e.wich == 69 || e.keyCode == 69){
 	$("#teclaBranca3").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/e1.mp3";
+	audio1.src = "MP3/piano/notas/e1.mp3";
 	audio1.play();
 }
 
@@ -95,7 +112,7 @@ if(e.wich == 69 || e.keyCode == 69){
 if(e.wich == 82 || e.keyCode == 82){
 	$("#teclaBranca4").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/f1.mp3";
+	audio1.src = "MP3/piano/notas/f1.mp3";
 	audio1.play();
 }
 
@@ -103,7 +120,7 @@ if(e.wich == 82 || e.keyCode == 82){
 if(e.wich == 84 || e.keyCode == 84){
 	$("#teclaBranca5").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/g1.mp3";
+	audio1.src = "MP3/piano/notas/g1.mp3";
 	audio1.play(); 
 }
 
@@ -111,7 +128,7 @@ if(e.wich == 84 || e.keyCode == 84){
 if(e.wich == 89 || e.keyCode == 89){
 	$("#teclaBranca6").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/a1.mp3";
+	audio1.src = "MP3/piano/notas/a1.mp3";
 	audio1.play(); 
 }
 
@@ -119,7 +136,7 @@ if(e.wich == 89 || e.keyCode == 89){
 if(e.wich == 85 || e.keyCode == 85){
 	$("#teclaBranca7").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/b1.mp3";
+	audio1.src = "MP3/piano/notas/b1.mp3";
 	audio1.play(); 
 }
 
@@ -127,7 +144,7 @@ if(e.wich == 85 || e.keyCode == 85){
 if(e.wich == 90 || e.keyCode == 90){
 	$("#teclaBranca8").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/C-oitavada.wav";
+	audio1.src = "MP3/piano/notas/C-oitavada.wav";
 	audio1.play();
 }
 
@@ -135,7 +152,7 @@ if(e.wich == 90 || e.keyCode == 90){
 if(e.wich == 88 || e.keyCode == 88){
 	$("#teclaBranca9").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/D-oitavada.wav";
+	audio1.src = "MP3/piano/notas/D-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -143,7 +160,7 @@ if(e.wich == 88 || e.keyCode == 88){
 if(e.wich == 67 || e.keyCode == 67){
 	$("#teclaBranca10").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/E-oitavada.wav";
+	audio1.src = "MP3/piano/notas/E-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -151,7 +168,7 @@ if(e.wich == 67 || e.keyCode == 67){
 if(e.wich == 86 || e.keyCode == 86){
 	$("#teclaBranca11").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/F-oitavada.wav";
+	audio1.src = "MP3/piano/notas/F-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -159,7 +176,7 @@ if(e.wich == 86 || e.keyCode == 86){
 if(e.wich == 66 || e.keyCode == 66){
 	$("#teclaBranca12").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/G-oitavada.wav";
+	audio1.src = "MP3/piano/notas/G-oitavada.wav";
 	audio1.play(); //falta arrumar
 }
 
@@ -167,7 +184,7 @@ if(e.wich == 66 || e.keyCode == 66){
 if(e.wich == 78 || e.keyCode == 78){
 	$("#teclaBranca13").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/A-oitavada.wav";
+	audio1.src = "MP3/piano/notas/A-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -175,7 +192,7 @@ if(e.wich == 78 || e.keyCode == 78){
 if(e.wich == 77 || e.keyCode == 77){
 	$("#teclaBranca14").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/B-oitavada.wav";
+	audio1.src = "MP3/piano/notas/B-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -183,7 +200,7 @@ if(e.wich == 77 || e.keyCode == 77){
 if(e.wich == 50 || e.keyCode == 50){
 	$("#teclaPreta1").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/c1s.mp3";
+	audio1.src = "MP3/piano/notas/c1s.mp3";
 	audio1.play();
 }
 
@@ -191,7 +208,7 @@ if(e.wich == 50 || e.keyCode == 50){
 if(e.wich == 51 || e.keyCode == 51){
 	$("#teclaPreta2").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/d1s.mp3";
+	audio1.src = "MP3/piano/notas/d1s.mp3";
 	audio1.play();
 }
 
@@ -199,7 +216,7 @@ if(e.wich == 51 || e.keyCode == 51){
 if(e.wich == 53 || e.keyCode == 53){
 	$("#teclaPreta3").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/f1s.mp3";
+	audio1.src = "MP3/piano/notas/f1s.mp3";
 	audio1.play();
 }
 
@@ -207,7 +224,7 @@ if(e.wich == 53 || e.keyCode == 53){
 if(e.wich == 54 || e.keyCode == 54){
 	$("#teclaPreta4").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/g1s.mp3";
+	audio1.src = "MP3/piano/notas/g1s.mp3";
 	audio1.play(); 
 }
 
@@ -215,7 +232,7 @@ if(e.wich == 54 || e.keyCode == 54){
 if(e.wich == 55 || e.keyCode == 55){
 	$("#teclaPreta5").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/a1s.mp3";
+	audio1.src = "MP3/piano/notas/a1s.mp3";
 	audio1.play(); 
 }
 
@@ -223,7 +240,7 @@ if(e.wich == 55 || e.keyCode == 55){
 if(e.wich == 83 || e.keyCode == 83){
 	$("#teclaPreta6").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Cs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Cs-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -231,7 +248,7 @@ if(e.wich == 83 || e.keyCode == 83){
 if(e.wich == 68 || e.keyCode == 68){
 	$("#teclaPreta7").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Ds-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Ds-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -239,7 +256,7 @@ if(e.wich == 68 || e.keyCode == 68){
 if(e.wich == 71 || e.keyCode == 71){
 	$("#teclaPreta8").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Fs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Fs-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -247,7 +264,7 @@ if(e.wich == 71 || e.keyCode == 71){
 if(e.wich == 72 || e.keyCode == 72){
 	$("#teclaPreta9").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Gs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Gs-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -255,7 +272,7 @@ if(e.wich == 72 || e.keyCode == 72){
 if(e.wich == 74 || e.keyCode == 74){
 	$("#teclaPreta10").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/As-oitavada.wav";
+	audio1.src = "MP3/piano/notas/As-oitavada.wav";
 	audio1.play(); 
 }
 
@@ -391,7 +408,7 @@ if(e.wich == 74 || e.keyCode == 74){
 $('#teclaBranca1').click(function(){
 	$("#teclaBranca1").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/c1.mp3";
+	audio1.src = "MP3/piano/notas/c1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca1").attr("fill", "#FFFFFF");
@@ -401,7 +418,7 @@ $('#teclaBranca1').click(function(){
 $('#teclaBranca2').click(function(){
 	$("#teclaBranca2").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/d1.mp3";
+	audio1.src = "MP3/piano/notas/d1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca2").attr("fill", "#FFFFFF");
@@ -411,7 +428,7 @@ $('#teclaBranca2').click(function(){
 $('#teclaBranca3').click(function(){
 	$("#teclaBranca3").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/e1.mp3";
+	audio1.src = "MP3/piano/notas/e1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca3").attr("fill", "#FFFFFF");
@@ -421,7 +438,7 @@ $('#teclaBranca3').click(function(){
 $('#teclaBranca4').click(function(){
 	$("#teclaBranca4").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/f1.mp3";
+	audio1.src = "MP3/piano/notas/f1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca4").attr("fill", "#FFFFFF");
@@ -431,7 +448,7 @@ $('#teclaBranca4').click(function(){
 $('#teclaBranca5').click(function(){
 	$("#teclaBranca5").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/g1.mp3";
+	audio1.src = "MP3/piano/notas/g1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca5").attr("fill", "#FFFFFF");
@@ -441,7 +458,7 @@ $('#teclaBranca5').click(function(){
 $('#teclaBranca6').click(function(){
 	$("#teclaBranca6").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/a1.mp3";
+	audio1.src = "MP3/piano/notas/a1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca6").attr("fill", "#FFFFFF");
@@ -451,7 +468,7 @@ $('#teclaBranca6').click(function(){
 $('#teclaBranca7').click(function(){
 	$("#teclaBranca7").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/b1.mp3";
+	audio1.src = "MP3/piano/notas/b1.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca7").attr("fill", "#FFFFFF");
@@ -461,7 +478,7 @@ $('#teclaBranca7').click(function(){
 $('#teclaBranca8').click(function(){
 	$("#teclaBranca8").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/C-oitavada.wav";
+	audio1.src = "MP3/piano/notas/C-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca8").attr("fill", "#FFFFFF");
@@ -471,7 +488,7 @@ $('#teclaBranca8').click(function(){
 $('#teclaBranca9').click(function(){
 	$("#teclaBranca9").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/D-oitavada.wav";
+	audio1.src = "MP3/piano/notas/D-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca9").attr("fill", "#FFFFFF");
@@ -481,7 +498,7 @@ $('#teclaBranca9').click(function(){
 $('#teclaBranca10').click(function(){
 	$("#teclaBranca10").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/E-oitavada.wav";
+	audio1.src = "MP3/piano/notas/E-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca10").attr("fill", "#FFFFFF");
@@ -491,7 +508,7 @@ $('#teclaBranca10').click(function(){
 $('#teclaBranca11').click(function(){
 	$("#teclaBranca11").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/F-oitavada.wav";
+	audio1.src = "MP3/piano/notas/F-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca11").attr("fill", "#FFFFFF");
@@ -501,7 +518,7 @@ $('#teclaBranca11').click(function(){
 $('#teclaBranca12').click(function(){
 	$("#teclaBranca12").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/G-oitavada.wav";
+	audio1.src = "MP3/piano/notas/G-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca12").attr("fill", "#FFFFFF");
@@ -511,7 +528,7 @@ $('#teclaBranca12').click(function(){
 $('#teclaBranca13').click(function(){
 	$("#teclaBranca13").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/A-oitavada.wav";
+	audio1.src = "MP3/piano/notas/A-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca13").attr("fill", "#FFFFFF");
@@ -521,7 +538,7 @@ $('#teclaBranca13').click(function(){
 $('#teclaBranca14').click(function(){
 	$("#teclaBranca14").attr("fill", "#c4c0c0");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/B-oitavada.wav";
+	audio1.src = "MP3/piano/notas/B-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaBranca14").attr("fill", "#FFFFFF");
@@ -531,7 +548,7 @@ $('#teclaBranca14').click(function(){
 $('#teclaPreta1').click(function(){
 	$("#teclaPreta1").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/c1s.mp3";
+	audio1.src = "MP3/piano/notas/c1s.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta1").attr("fill", "#000000");
@@ -541,7 +558,7 @@ $('#teclaPreta1').click(function(){
 $('#teclaPreta2').click(function(){
 	$("#teclaPreta2").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/d1s.mp3";
+	audio1.src = "MP3/piano/notas/d1s.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta2").attr("fill", "#000000");
@@ -551,7 +568,7 @@ $('#teclaPreta2').click(function(){
 $('#teclaPreta3').click(function(){
 	$("#teclaPreta3").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/f1s.mp3";
+	audio1.src = "MP3/piano/notas/f1s.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta3").attr("fill", "#000000");
@@ -561,7 +578,7 @@ $('#teclaPreta3').click(function(){
 $('#teclaPreta4').click(function(){
 	$("#teclaPreta4").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/g1s.mp3";
+	audio1.src = "MP3/piano/notas/g1s.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta4").attr("fill", "#000000");
@@ -571,7 +588,7 @@ $('#teclaPreta4').click(function(){
 $('#teclaPreta5').click(function(){
 	$("#teclaPreta5").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/a1s.mp3";
+	audio1.src = "MP3/piano/notas/a1s.mp3";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta5").attr("fill", "#000000");
@@ -581,7 +598,7 @@ $('#teclaPreta5').click(function(){
 $('#teclaPreta6').click(function(){
 	$("#teclaPreta6").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Cs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Cs-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta6").attr("fill", "#000000");
@@ -591,7 +608,7 @@ $('#teclaPreta6').click(function(){
 $('#teclaPreta7').click(function(){
 	$("#teclaPreta7").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Ds-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Ds-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta7").attr("fill", "#000000");
@@ -601,7 +618,7 @@ $('#teclaPreta7').click(function(){
 $('#teclaPreta8').click(function(){
 	$("#teclaPreta8").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Fs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Fs-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta8").attr("fill", "#000000");
@@ -611,7 +628,7 @@ $('#teclaPreta8').click(function(){
 $('#teclaPreta9').click(function(){
 	$("#teclaPreta9").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/Gs-oitavada.wav";
+	audio1.src = "MP3/piano/notas/Gs-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta9").attr("fill", "#000000");
@@ -621,7 +638,7 @@ $('#teclaPreta9').click(function(){
 $('#teclaPreta10').click(function(){
 	$("#teclaPreta10").attr("fill", "#4f4c4c");
 	var audio1 = new Audio();
-	audio1.src = "MP3/piano/As-oitavada.wav";
+	audio1.src = "MP3/piano/notas/As-oitavada.wav";
 	audio1.play();
 	setTimeout(function(){ 
 		$("#teclaPreta10").attr("fill", "#000000");
