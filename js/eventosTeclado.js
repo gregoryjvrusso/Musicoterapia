@@ -1,647 +1,210 @@
 $(document).ready(function(){
-	var i = 0;
-	var musicas =   [
-        { mp3:'MP3/piano/base/jazz.mp3' , ogg:'jazz.ogg' , titulo:'Jazz'},
-        { mp3:'MP3/piano/base/bossanova.mp3', ogg:'bossanova.ogg' , titulo:'Bossa Nova'},
-        { mp3:'MP3/piano/base/choro.mp3' ,ogg:'choro.ogg' , titulo:'Choro'},
-    ]; 
 
-	var audioFundo1 = new Audio();
-	audioFundo1.src = musicas[i].mp3;
-	audioFundo1.volume = 0.5;
-//EVENTOS BOTÃO
-//Botão Voltar
-$('#botao-voltar').mouseover(function(){
-	$("#botao-voltar").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#botao-voltar").attr("style", "fill:#FFDA44");
-});	
-
-//Botão Play Music
-$('#botao-play').mouseover(function(){
-	$("#botao-play").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#botao-play").attr("style", "fill:#FFDA44");
-})
-.click(function() {
-	audioFundo1.play();
-});	
-
-//Botão Pause Music
-$('#botao-pause').mouseover(function(){
-	$("#botao-pause").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#botao-pause").attr("style", "fill:#FFDA44");
-})
-.click(function() {
-	audioFundo1.pause();
-});	
-
-//Botão Aumentar Volume
-$('#aumentar-volume').mouseover(function(){
-	$("#aumentar-volume").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#aumentar-volume").attr("style", "fill:#FFDA44");
-})
-.click(function() {
-    if( audioFundo1.volume < 1) {
-    	audioFundo1.volume += 0.1;
-    }
-});	
-
-//Botão Diminuir Volume
-$('#diminuir-volume').mouseover(function(){
-	$("#diminuir-volume").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#diminuir-volume").attr("style", "fill:#FFDA44");
-})
-.click(function() {
-    if( audioFundo1.volume > 0)  audioFundo1.volume -= 0.1;
-});	
-
-//Botão Proxima Música
-$('#proxima-musica').mouseover(function(){
-	$("#proxima-musica").attr("style", "fill:#e89d2e;");
-})
-.mouseleave(function() {
-	$("#proxima-musica").attr("style", "fill:#FFDA44");
-})
-.click(function() {
-	i++;
-	if(i >= musicas.length){
-		i = 0;
-	} 
-	audioFundo1.src = musicas[i].mp3;
-	audioFundo1.play();
+	$('.teclaBranca').click(function(){
+		var id = $(this).attr('id');
+		$(this).find('#tecla').attr("fill", "#c4c0c0");
 	
-});	
+		IniciarAudio(id);	
 
-//EVENTO PARA QUANDO CLICAR
-$(document).keydown(function(e){
+		setTimeout(function(){ 
+			$('.teclaBranca').find('#tecla').attr("fill", "#FFFFFF");
+		}, 100);  
+	})
 
-// Tecla Branca 1 - C -> Letra Q
-if(e.wich == 81 || e.keyCode == 81){
-	$("#teclaBranca1").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/c1.mp3";
-	audio1.play();
-}
+	$('.teclaPreta').click(function(){
+		var id = $(this).attr('id');
+		$(this).find('#tecla').attr("fill", "#4f4c4c");
+		
+		IniciarAudio(id);	
+		
+		setTimeout(function(){ 
+			$('.teclaPreta').find('#tecla').attr("fill", "#000000");
+		}, 100);  		
+	})
 
-// Tecla Branca 2 - D -> Letra W
-if(e.wich == 87 || e.keyCode == 87){
-	$("#teclaBranca2").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/d1.mp3";
-	audio1.play();
-}
+	$(document).keydown(function(e){
+		if(e.wich == 81 || e.keyCode == 81){
+			$("#teclaBranca1").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca1");
+		}
+		if(e.wich == 87 || e.keyCode == 87){
+			$("#teclaBranca2").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca2");
+		}
+		if(e.wich == 69 || e.keyCode == 69){
+			$("#teclaBranca3").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca3");
+		}
+		if(e.wich == 82 || e.keyCode == 82){
+			$("#teclaBranca4").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca4");
+		}
+		if(e.wich == 84 || e.keyCode == 84){
+			$("#teclaBranca5").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca5"); 
+		}
+		if(e.wich == 89 || e.keyCode == 89){
+			$("#teclaBranca6").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca6"); 
+		}
+		if(e.wich == 85 || e.keyCode == 85){
+			$("#teclaBranca7").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca7"); 
+		}
+		if(e.wich == 90 || e.keyCode == 90){
+			$("#teclaBranca8").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca8"); 
+		}
+		if(e.wich == 88 || e.keyCode == 88){
+			$("#teclaBranca9").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca9"); 
+		}
+		if(e.wich == 67 || e.keyCode == 67){
+			$("#teclaBranca10").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca10"); 
+		}
+		if(e.wich == 86 || e.keyCode == 86){
+			$("#teclaBranca11").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca11"); 
+		}
+		if(e.wich == 66 || e.keyCode == 66){
+			$("#teclaBranca12").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca12"); 
+		}
+		if(e.wich == 78 || e.keyCode == 78){
+			$("#teclaBranca13").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca13"); 
+		}
+		if(e.wich == 77 || e.keyCode == 77){
+			$("#teclaBranca14").find("rect").attr("fill", "#c4c0c0");
+			IniciarAudio("teclaBranca14"); 
+		}
+		if(e.wich == 50 || e.keyCode == 50){
+			$("#teclaPreta1").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta1"); 
+		}
+		if(e.wich == 51 || e.keyCode == 51){
+			$("#teclaPreta2").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta2"); 
+		}
+		if(e.wich == 53 || e.keyCode == 53){
+			$("#teclaPreta3").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta3"); 
+		}
+		if(e.wich == 54 || e.keyCode == 54){
+			$("#teclaPreta4").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta4"); 
+		}
+		if(e.wich == 55 || e.keyCode == 55){
+			$("#teclaPreta5").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta5");  
+		}
+		if(e.wich == 83 || e.keyCode == 83){
+			$("#teclaPreta6").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta6");  
+		}
+		if(e.wich == 68 || e.keyCode == 68){
+			$("#teclaPreta7").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta7"); 
+		}
+		if(e.wich == 71 || e.keyCode == 71){
+			$("#teclaPreta8").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta8"); 		
+		}
+		if(e.wich == 72 || e.keyCode == 72){
+			$("#teclaPreta9").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta9"); 
+		}
+		if(e.wich == 74 || e.keyCode == 74){
+			$("#teclaPreta10").find("rect").attr("fill", "#4f4c4c");
+			IniciarAudio("teclaPreta10"); 
+		}
+	})
 
-// Tecla Branca 3 - E -> Letra E
-if(e.wich == 69 || e.keyCode == 69){
-	$("#teclaBranca3").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/e1.mp3";
-	audio1.play();
-}
+	$(document).keyup(function(e){
+		if(e.wich == 81 || e.keyCode == 81) $("#teclaBranca1").find("rect").attr("fill", "#FFFFFF");
 
-// Tecla Branca 4 - F -> Letra R
-if(e.wich == 82 || e.keyCode == 82){
-	$("#teclaBranca4").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/f1.mp3";
-	audio1.play();
-}
+		if(e.wich == 87 || e.keyCode == 87) $("#teclaBranca2").find("rect").attr("fill", "#FFFFFF");
 
-// Tecla Branca 5 - G -> Letra T
-if(e.wich == 84 || e.keyCode == 84){
-	$("#teclaBranca5").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/g1.mp3";
-	audio1.play(); 
-}
+		if(e.wich == 69 || e.keyCode == 69) $("#teclaBranca3").find("rect").attr("fill", "#FFFFFF");
 
-// Tecla Branca 6 - A -> Letra Y
-if(e.wich == 89 || e.keyCode == 89){
-	$("#teclaBranca6").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/a1.mp3";
-	audio1.play(); 
-}
+		if(e.wich == 82 || e.keyCode == 82) $("#teclaBranca4").find("rect").attr("fill", "#FFFFFF");
 
-// Tecla Branca 7 - B -> Letra U
-if(e.wich == 85 || e.keyCode == 85){
-	$("#teclaBranca7").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/b1.mp3";
-	audio1.play(); 
-}
+		if(e.wich == 84 || e.keyCode == 84) $("#teclaBranca5").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 8 - C OITAVADA -> Letra Z
-if(e.wich == 90 || e.keyCode == 90){
-	$("#teclaBranca8").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/C-oitavada.wav";
-	audio1.play();
-}
+		if(e.wich == 89 || e.keyCode == 89) $("#teclaBranca6").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 9 - D OITAVADA -> Letra X
-if(e.wich == 88 || e.keyCode == 88){
-	$("#teclaBranca9").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/D-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 85 || e.keyCode == 85) $("#teclaBranca7").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 10 - E OITAVADA -> Letra C
-if(e.wich == 67 || e.keyCode == 67){
-	$("#teclaBranca10").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/E-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 90 || e.keyCode == 90) $("#teclaBranca8").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 11 - F OITAVADA -> Letra V
-if(e.wich == 86 || e.keyCode == 86){
-	$("#teclaBranca11").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/F-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 88 || e.keyCode == 88) $("#teclaBranca9").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 12 - G OITAVADA -> Letra B
-if(e.wich == 66 || e.keyCode == 66){
-	$("#teclaBranca12").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/G-oitavada.wav";
-	audio1.play(); //falta arrumar
-}
+		if(e.wich == 67 || e.keyCode == 67) $("#teclaBranca10").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 13 - A OITAVADA -> Letra N
-if(e.wich == 78 || e.keyCode == 78){
-	$("#teclaBranca13").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/A-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 86 || e.keyCode == 86) $("#teclaBranca11").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Branca 14 - B OITAVADA -> Letra M
-if(e.wich == 77 || e.keyCode == 77){
-	$("#teclaBranca14").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/B-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 66 || e.keyCode == 66)	$("#teclaBranca12").find("rect").attr("fill", "#FFFFFF"); 
 
-// Tecla Preta 1 - C# -> Letra 2
-if(e.wich == 50 || e.keyCode == 50){
-	$("#teclaPreta1").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/c1s.mp3";
-	audio1.play();
-}
+		if(e.wich == 78 || e.keyCode == 78)	$("#teclaBranca13").find("rect").attr("fill", "#FFFFFF"); 
 
-//Tecla Preta 2 - D# -> Letra 3
-if(e.wich == 51 || e.keyCode == 51){
-	$("#teclaPreta2").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/d1s.mp3";
-	audio1.play();
-}
+		if(e.wich == 77 || e.keyCode == 77)	$("#teclaBranca14").find("rect").attr("fill", "#FFFFFF");
 
-//Tecla Preta 3 - F# -> Letra 5
-if(e.wich == 53 || e.keyCode == 53){
-	$("#teclaPreta3").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/f1s.mp3";
-	audio1.play();
-}
+		if(e.wich == 50 || e.keyCode == 50)	$("#teclaPreta1").find("rect").attr("fill", "#000000");
 
-//Tecla Preta 4 - G# -> Letra 6
-if(e.wich == 54 || e.keyCode == 54){
-	$("#teclaPreta4").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/g1s.mp3";
-	audio1.play(); 
-}
+		if(e.wich == 51 || e.keyCode == 51)	$("#teclaPreta2").find("rect").attr("fill", "#000000");
 
-//Tecla Preta 5 - A# -> Letra 7
-if(e.wich == 55 || e.keyCode == 55){
-	$("#teclaPreta5").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/a1s.mp3";
-	audio1.play(); 
-}
+		if(e.wich == 53 || e.keyCode == 53)	$("#teclaPreta3").find("rect").attr("fill", "#000000");
 
-//Tecla Preta 6 - C# Oitavada -> Letra S
-if(e.wich == 83 || e.keyCode == 83){
-	$("#teclaPreta6").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Cs-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 54 || e.keyCode == 54)	$("#teclaPreta4").find("rect").attr("fill", "#000000"); 
 
-//Tecla Preta 7 - D# Oitavada -> Letra D
-if(e.wich == 68 || e.keyCode == 68){
-	$("#teclaPreta7").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Ds-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 55 || e.keyCode == 55)	$("#teclaPreta5").find("rect").attr("fill", "#000000"); 
 
-//Tecla Preta 8 - F# Oitavada -> Letra G
-if(e.wich == 71 || e.keyCode == 71){
-	$("#teclaPreta8").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Fs-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 83 || e.keyCode == 83)	$("#teclaPreta6").find("rect").attr("fill", "#000000"); 
 
-//Tecla Preta 9 - G# Oitavada -> Letra H
-if(e.wich == 72 || e.keyCode == 72){
-	$("#teclaPreta9").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Gs-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 68 || e.keyCode == 68)	$("#teclaPreta7").find("rect").attr("fill", "#000000"); 
 
-//Tecla Preta 10 - A# Oitavada -> Letra J
-if(e.wich == 74 || e.keyCode == 74){
-	$("#teclaPreta10").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/As-oitavada.wav";
-	audio1.play(); 
-}
+		if(e.wich == 71 || e.keyCode == 71)	$("#teclaPreta8").find("rect").attr("fill", "#000000"); 
 
+		if(e.wich == 72 || e.keyCode == 72)	$("#teclaPreta9").find("rect").attr("fill", "#000000"); 
+
+		if(e.wich == 74 || e.keyCode == 74)	$("#teclaPreta10").find("rect").attr("fill", "#000000"); 
+	})
 })
 
-//EVENTOS PARA QUANDO DEIXAR DE DIGITAR
-$(document).keyup(function(e){
-
-// Tecla Branca 1 - C -> Letra Q
-if(e.wich == 81 || e.keyCode == 81){
-	$("#teclaBranca1").attr("fill", "#FFFFFF");
+function IniciarAudio(valor){
+	var audio1 = new Audio();
+		audio1.src = escolherSom(valor);
+		audio1.play();
 }
 
-// Tecla Branca 2 - D -> Letra W
-if(e.wich == 87 || e.keyCode == 87){
-	$("#teclaBranca2").attr("fill", "#FFFFFF");
+function escolherSom(valor){
+	switch(valor) {
+		case 'teclaBranca1': return "MP3/piano/notas/c1.mp3"; break;
+		case 'teclaBranca2': return "MP3/piano/notas/d1.mp3"; break;
+		case 'teclaBranca3': return "MP3/piano/notas/e1.mp3"; break;
+		case 'teclaBranca4': return "MP3/piano/notas/f1.mp3"; break;
+		case 'teclaBranca5': return "MP3/piano/notas/g1.mp3"; break;
+		case 'teclaBranca6': return "MP3/piano/notas/a1.mp3"; break;
+		case 'teclaBranca7': return "MP3/piano/notas/b1.mp3"; break;
+		case 'teclaBranca8': return "MP3/piano/notas/C-oitavada.wav"; break;
+		case 'teclaBranca9': return "MP3/piano/notas/D-oitavada.wav"; break;
+		case 'teclaBranca10': return "MP3/piano/notas/E-oitavada.wav"; break;
+		case 'teclaBranca11': return "MP3/piano/notas/F-oitavada.wav"; break;
+		case 'teclaBranca12': return "MP3/piano/notas/G-oitavada.wav"; break;
+		case 'teclaBranca13': return "MP3/piano/notas/A-oitavada.wav"; break;
+		case 'teclaBranca14': return "MP3/piano/notas/B-oitavada.wav"; break;
+		case 'teclaPreta1': return "MP3/piano/notas/c1s.mp3"; break;	
+		case 'teclaPreta2': return "MP3/piano/notas/d1s.mp3"; break;	
+		case 'teclaPreta3': return "MP3/piano/notas/f1s.mp3"; break;	
+		case 'teclaPreta4': return "MP3/piano/notas/g1s.mp3"; break;	
+		case 'teclaPreta5': return "MP3/piano/notas/a1s.mp3"; break;	
+		case 'teclaPreta6': return "MP3/piano/notas/Cs-oitavada.wav"; break;	
+		case 'teclaPreta7': return "MP3/piano/notas/Ds-oitavada.wav"; break;	
+		case 'teclaPreta8': return "MP3/piano/notas/Fs-oitavada.wav"; break;	
+		case 'teclaPreta9': return "MP3/piano/notas/Gs-oitavada.wav"; break;	
+		case 'teclaPreta10': return "MP3/piano/notas/As-oitavada.wav"; break;		
+		default: break;
+	}
 }
-
-// Tecla Branca 3 - E -> Letra E
-if(e.wich == 69 || e.keyCode == 69){
-	$("#teclaBranca3").attr("fill", "#FFFFFF");
-}
-
-// Tecla Branca 4 - F -> Letra R
-if(e.wich == 82 || e.keyCode == 82){
-	$("#teclaBranca4").attr("fill", "#FFFFFF");
-}
-
-// Tecla Branca 5 - G -> Letra T
-if(e.wich == 84 || e.keyCode == 84){
-	$("#teclaBranca5").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 6 - A -> Letra Y
-if(e.wich == 89 || e.keyCode == 89){
-	$("#teclaBranca6").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 7 - B -> Letra U
-if(e.wich == 85 || e.keyCode == 85){
-	$("#teclaBranca7").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 8 - C OITAVADA -> Letra Z
-if(e.wich == 90 || e.keyCode == 90){
-	$("#teclaBranca8").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 9 - D OITAVADA -> Letra X
-if(e.wich == 88 || e.keyCode == 88){
-	$("#teclaBranca9").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 10 - E OITAVADA -> Letra C
-if(e.wich == 67 || e.keyCode == 67){
-	$("#teclaBranca10").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 11 - F OITAVADA -> Letra V
-if(e.wich == 86 || e.keyCode == 86){
-	$("#teclaBranca11").attr("fill", "#FFFFFF"); 
-} 
-
-// Tecla Branca 12 - G OITAVADA -> Letra B
-if(e.wich == 66 || e.keyCode == 66){
-	$("#teclaBranca12").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 13 - A OITAVADA -> Letra N
-if(e.wich == 78 || e.keyCode == 78){
-	$("#teclaBranca13").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Branca 14 - B OITAVADA -> Letra M
-if(e.wich == 77 || e.keyCode == 77){
-	$("#teclaBranca14").attr("fill", "#FFFFFF"); 
-}
-
-// Tecla Preta 1 - C# -> Letra 2
-if(e.wich == 50 || e.keyCode == 50){
-	$("#teclaPreta1").attr("fill", "#000000");
-}
-
-// Tecla Preta 2 - D# -> Letra 3
-if(e.wich == 51 || e.keyCode == 51){
-	$("#teclaPreta2").attr("fill", "#000000");
-}
-
-// Tecla Preta 3 - F# -> Letra 5
-if(e.wich == 53 || e.keyCode == 53){
-	$("#teclaPreta3").attr("fill", "#000000");
-}
-
-// Tecla Preta 4 - G# -> Letra 6
-if(e.wich == 54 || e.keyCode == 54){
-	$("#teclaPreta4").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 5 - A# -> Letra 7
-if(e.wich == 55 || e.keyCode == 55){
-	$("#teclaPreta5").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 6 - C# OITAVADA -> Letra S
-if(e.wich == 83 || e.keyCode == 83){
-	$("#teclaPreta6").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 7 - D# OITAVADA -> Letra D
-if(e.wich == 68 || e.keyCode == 68){
-	$("#teclaPreta7").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 8 - F# OITAVADA -> Letra G
-if(e.wich == 71 || e.keyCode == 71){
-	$("#teclaPreta8").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 9 - G# OITAVADA -> Letra H
-if(e.wich == 72 || e.keyCode == 72){
-	$("#teclaPreta9").attr("fill", "#000000"); 
-}
-
-// Tecla Preta 10 - A# OITAVADA -> Letra J
-if(e.wich == 74 || e.keyCode == 74){
-	$("#teclaPreta10").attr("fill", "#000000"); 
-}
-})
-
-
-//EVENTOS PARA QUANDO CLICAR COM O MOUSE
-// Tecla Branca 1 - C
-$('#teclaBranca1').click(function(){
-	$("#teclaBranca1").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/c1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca1").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 2 - D
-$('#teclaBranca2').click(function(){
-	$("#teclaBranca2").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/d1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca2").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 3 - E
-$('#teclaBranca3').click(function(){
-	$("#teclaBranca3").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/e1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca3").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 4 - F
-$('#teclaBranca4').click(function(){
-	$("#teclaBranca4").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/f1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca4").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 5 - G
-$('#teclaBranca5').click(function(){
-	$("#teclaBranca5").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/g1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca5").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 6 - A
-$('#teclaBranca6').click(function(){
-	$("#teclaBranca6").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/a1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca6").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 7 - B
-$('#teclaBranca7').click(function(){
-	$("#teclaBranca7").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/b1.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca7").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 8 - C OITAVADA
-$('#teclaBranca8').click(function(){
-	$("#teclaBranca8").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/C-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca8").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 9 - D OITAVADA
-$('#teclaBranca9').click(function(){
-	$("#teclaBranca9").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/D-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca9").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 10 - E OITAVADA
-$('#teclaBranca10').click(function(){
-	$("#teclaBranca10").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/E-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca10").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 11 - F OITAVADA
-$('#teclaBranca11').click(function(){
-	$("#teclaBranca11").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/F-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca11").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 12 - G OITAVADA
-$('#teclaBranca12').click(function(){
-	$("#teclaBranca12").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/G-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca12").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 13 - A OITAVADA
-$('#teclaBranca13').click(function(){
-	$("#teclaBranca13").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/A-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca13").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Branca 14 - B OITAVADA
-$('#teclaBranca14').click(function(){
-	$("#teclaBranca14").attr("fill", "#c4c0c0");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/B-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaBranca14").attr("fill", "#FFFFFF");
-	}, 100);  })
-
-// Tecla Preta 1 - C#
-$('#teclaPreta1').click(function(){
-	$("#teclaPreta1").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/c1s.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta1").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 2 - D#
-$('#teclaPreta2').click(function(){
-	$("#teclaPreta2").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/d1s.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta2").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 3 - F#
-$('#teclaPreta3').click(function(){
-	$("#teclaPreta3").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/f1s.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta3").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 4 - G#
-$('#teclaPreta4').click(function(){
-	$("#teclaPreta4").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/g1s.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta4").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 5 - A#
-$('#teclaPreta5').click(function(){
-	$("#teclaPreta5").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/a1s.mp3";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta5").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 6 - C# OITAVADA
-$('#teclaPreta6').click(function(){
-	$("#teclaPreta6").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Cs-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta6").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 7 - D# OITAVADA
-$('#teclaPreta7').click(function(){
-	$("#teclaPreta7").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Ds-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta7").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 8 - F# OITAVADA
-$('#teclaPreta8').click(function(){
-	$("#teclaPreta8").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Fs-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta8").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 9 - G# OITAVADA
-$('#teclaPreta9').click(function(){
-	$("#teclaPreta9").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/Gs-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta9").attr("fill", "#000000");
-	}, 100);  })
-
-// Tecla Preta 10 - A# OITAVADA
-$('#teclaPreta10').click(function(){
-	$("#teclaPreta10").attr("fill", "#4f4c4c");
-	var audio1 = new Audio();
-	audio1.src = "MP3/piano/notas/As-oitavada.wav";
-	audio1.play();
-	setTimeout(function(){ 
-		$("#teclaPreta10").attr("fill", "#000000");
-	}, 100);  })
-})
 
